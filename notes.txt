@@ -1,0 +1,56 @@
+------------------------------FIRST-RUN----------------------------------------
+
+Results for the extraLargeArray
+insert 706.899917 ms
+append 1.869583 ms
+
+
+Results for the largeArray
+insert 7.355625 ms
+append 438.417 μs
+
+
+Results for the mediumArray
+insert 139.834 μs
+append 93.583 μs
+
+
+Results for the smallArray
+insert 25.417 μs
+append 55.458 μs
+
+
+Results for the tinyArray
+insert 23.916 μs
+append 80.666 μs
+
+-----------------------------SECOND-RUN-------------------------------------------
+
+Results for the extraLargeArray
+insert 725.371208 ms
+append 3.032917 ms
+
+
+Results for the largeArray
+insert 7.673625 ms
+append 928.917 μs
+
+
+Results for the mediumArray
+insert 150.291 μs
+append 126.416 μs
+
+
+Results for the smallArray
+insert 24.667 μs
+append 58.666 μs
+
+
+Results for the tinyArray
+insert 18.583 μs
+append 64.583 μs
+-----------------------------------------------------------------------
+
+The doublerAppend() uses the .push() method while doublerInsert() uses the .unshift() method.
+The resulting differnce in performance is small with the tiny array, but as you scale up to the size of the array it becomes more and more pronounced, with the doublerAppend() scaling up and having a slower runtime.
+This differnce becomes more pronounced at an exponential rate. This leads me to think that the doublerAppend function has a time complexity of O(n^2) and so it grows exponentially, whereas the doublerInsert function seems to have a time complexity of O(n) and so it grows linearly. This would be due to the difference in the underlying process of the unshift and push methods.
